@@ -1,9 +1,6 @@
 name: testing sample pipeline
 trigger:
   - master
-resources:
-  - repo: self
-  
 stages:
     - stage: runscript1
       displayName: runscript1 
