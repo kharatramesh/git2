@@ -16,6 +16,7 @@ stages:
             displayName: runshellscripts
             inputs:
               scriptPath: shell.sh
+        dependsOn: runscript1
       - job: buildrunpowershellscript
         displayName: runbashscript
         pool: prod      
@@ -23,6 +24,6 @@ stages:
           - task: PowerShell@2
             displayName: runpowershellscripts
             inputs:
-              filePath: powershell.ps              
+              filePath: powershell.ps1              
     
     
