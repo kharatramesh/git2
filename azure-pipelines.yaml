@@ -16,7 +16,7 @@ stages:
             displayName: runshellscripts
             inputs:
               scriptPath: shell.sh
-      - job: buildrunbashscript
+      - job: buildrunpowershellscript
         displayName: runbashscript
         pool: prod      
         steps:
