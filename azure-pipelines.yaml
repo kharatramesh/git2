@@ -1,26 +1,28 @@
-## testing sample pipeline
+name: testing sample pipeline
 trigger:
   - master
 resources:
   - repo: self
   
 stages:
-    - stage: Build Code
-      displayName: Build 
+    - stage: runscript1
+      displayName: runscript1 
       jobs:
-      - job: build
-        displayName: Build
-        pool:
-          vmImage: ubuntu-latest
+      - job: buildrunbashscript
+        displayName: runbashscript
+        pool: dev
         steps:
-          - task: Docker@2
-            displayName: buildAndPush
+          - task: ShellScript@2
+            displayName: runshellscripts
             inputs:
-              command: buildAndPush
-              containerRegistry: dockerconection1
-              repository: kharatramesh/git2
-              tags: |
-                  azuredemo1
-  
+              scriptPath: shell.sh
+      - job: buildrunbashscript
+        displayName: runbashscript
+        pool: prod      
+        steps:
+          - task: PowerShell@2
+            displayName: runpowershellscripts
+            inputs:
+              filePath: powershell.ps              
     
     
